@@ -11,14 +11,17 @@ function TodoInput(props) {
   const [st, setSt] = useState(0);
 
   function handleAddBtn() {
-    let todo: Todo = {
+    const todo: Todo = {
       title: title,
       description: desc,
-      limit: 0,
+      limit: 0, // TODO: 後で
       status: st,
       id: uuidv4(),
     };
     utl.list.add(todo);
+    setTitle("");
+    setDesc("");
+    setSt(0)
   }
   function handleSelectChange(e: React.FormEvent<HTMLSelectElement>) {
     const vi = parseInt(e.currentTarget.value);
@@ -54,7 +57,6 @@ function TodoInput(props) {
       <Form.Group className="mb-3">
         <Form.Label>status</Form.Label>
         <Form.Select onChange={handleSelectChange}>
-          <option>please choise status</option>
           <option value="0">todo</option>
           <option value="1">doing</option>
           <option value="2">doit</option>

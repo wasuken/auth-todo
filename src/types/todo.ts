@@ -1,13 +1,18 @@
 import React from "react";
+
+
 export class InputTodo {
   title: string;
   description: string;
   limit: number;
   status: number;
 }
+
 export class Todo extends InputTodo {
   id: number;
 }
+
+export const todoListInit: Todo = { id: 0, title: "", limit: 0, status: 0 }
 
 export interface TodoListReducerAction {
   type: string;
@@ -40,3 +45,4 @@ export type TodoState = {
   input: TodoInput;
 };
 
+export const statusMap = ["todo", "doing", "doit"];
